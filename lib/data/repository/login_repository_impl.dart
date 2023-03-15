@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:untitled/base/result_entity.dart';
 import 'package:untitled/data/model/login/login_remote_response.dart';
 import 'package:untitled/data/service/remote/login_remote_service.dart';
-import 'package:untitled/domain/model/login/login_user_data.dart';
+import 'package:untitled/domain/model/data/login/login_user_data.dart';
 import 'package:untitled/domain/repository/login/login_repository.dart';
 
 class LoginRepositoryImpl implements LoginRepository {
@@ -18,7 +18,7 @@ class LoginRepositoryImpl implements LoginRepository {
       if (response.statusCode == 200) {
         var a = LoginRemoteResponse.fromJson(jsonDecode(response.body))
             .toUserLoginData();
-        // print(a.token);
+        print(a.token);
         return ResultSuccess<UserLoginData>(a);
       } else {
         return ResultError(message: response.body);

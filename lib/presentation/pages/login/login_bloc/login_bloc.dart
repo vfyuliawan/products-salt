@@ -6,7 +6,7 @@ import 'package:http/http.dart';
 import 'package:untitled/base/result_entity.dart';
 import 'package:untitled/data/repository/login_repository_impl.dart';
 import 'package:untitled/data/utilities/commons.dart';
-import 'package:untitled/domain/model/login/login_user_data.dart';
+import 'package:untitled/domain/model/data/login/login_user_data.dart';
 import 'package:untitled/domain/repository/login/login_repository.dart';
 
 part 'login_event.dart';

@@ -7,13 +7,20 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:untitled/base/result_entity.dart';
 import 'package:untitled/data/repository/article_repository_impl.dart';
-import 'package:untitled/domain/model/article/article_data.dart';
+import 'package:untitled/data/repository/login_repository_impl.dart';
+import 'package:untitled/data/repository/product/product_repository_impl.dart';
+import 'package:untitled/data/repository/register_repository_impl.dart';
+import 'package:untitled/domain/base/authentication_header_request.dart.dart';
+import 'package:untitled/domain/model/data/article/article_data.dart';
 import 'package:untitled/domain/repository/login/login_repository.dart';
 
 import 'package:untitled/main.dart';
+import 'package:untitled/presentation/pages/login/login_bloc/login_bloc.dart';
+import 'package:http/http.dart' as http;
 
 // class Hewan {
 //   //properti atau parameter params
@@ -43,47 +50,66 @@ import 'package:untitled/main.dart';
 //   }
 // }
 
-abstract class Hewan {
-  //properti atau params
-  String? nama;
-  int? berat;
-  int? umur;
+// abstract class Hewan {
+//   //properti atau params
+//   String? nama;
+//   int? berat;
+//   int? umur;
 
-  Hewan({
-    this.nama,
-    this.berat,
-    this.umur,
-  });
+//   Hewan({
+//     this.nama,
+//     this.berat,
+//     this.umur,
+//   });
 
-  void makan(int banyak) {
-    berat = berat! + banyak;
+//   void makan(int banyak) {
+//     berat = berat! + banyak;
+//   }
+
+//   void pup(int banyak) {
+//     berat = berat! - banyak;
+//   }
+
+//   void tidur() {}
+// }
+
+// class Kucing extends Hewan {
+//   int? jumlahKaki;
+
+//   Kucing({
+//     this.jumlahKaki,
+//     String? namanya,
+//     int? beratnya,
+//     int? umurnya,
+//   }) : super(nama: namanya, berat: beratnya, umur: umurnya);
+
+//   void berjalan() {}
+// }
+
+// class Burung extends Hewan {
+//   int? warnaBulu;
+// }
+
+Future getData() async {
+  Uri url = Uri.parse("https://reqres.in/api/users?page=2");
+  var response = await http.get(url);
+  print(response.statusCode);
+
+  if (response.statusCode != 200) {
+    print("Gagal mengambil data");
+  } else {
+    print(response.body);
   }
-
-  void pup(int banyak) {
-    berat = berat! - banyak;
-  }
-
-  void tidur() {}
 }
 
-class Kucing extends Hewan {
-  int? jumlahKaki;
-
-  Kucing({
-    this.jumlahKaki,
-    String? namanya,
-    int? beratnya,
-    int? umurnya,
-  }) : super(nama: namanya, berat: beratnya, umur: umurnya);
-
-  void berjalan() {}
-}
-
-class Burung extends Hewan {
-  int? warnaBulu;
-}
-
-void main() {
+void main() async {
+  await getData();
+  // ProductRepositoryImpl()
+  //     .fetchDetailProduct(AuthenticationHeaderRequest("fasdfadf"), 1);
+  // BlocProvider.of<LoginBloc>(context)
+  // LoginRepositoryImpl().userLogin("mor_2314", "83r5^_");
+  // RegisterRepositoryImpl()
+  //     .registerUser("vicky Fadilla", "vicky@mail", "pass123");
   //abstarc class atau implements
   // var hewan = Hewan(nama: "fsadafd", berat: 12, umur: 12);
 
@@ -93,15 +119,15 @@ void main() {
   // var test = LoginRepository().fetchUserLogin();
   // print(test.fetchArticles("us"));
 
-  var kucing1 =
-      Kucing(namanya: "garfil", beratnya: 12, jumlahKaki: 4, umurnya: 12);
-  print("----before-----");
-  print(
-      "nama = ${kucing1.nama}, berat : ${kucing1.berat}, energy = ${kucing1.umur}, jumlah kaki : ${kucing1.jumlahKaki}");
-  kucing1.makan(12);
-  print("----after makan-----");
-  print(
-      "nama = ${kucing1.nama}, berat : ${kucing1.berat}, energy = ${kucing1.umur}, jumlah kaki : ${kucing1.jumlahKaki}");
+  // var kucing1 =
+  //     Kucing(namanya: "garfil", beratnya: 12, jumlahKaki: 4, umurnya: 12);
+  // print("----before-----");
+  // print(
+  //     "nama = ${kucing1.nama}, berat : ${kucing1.berat}, energy = ${kucing1.umur}, jumlah kaki : ${kucing1.jumlahKaki}");
+  // kucing1.makan(12);
+  // print("----after makan-----");
+  // print(
+  //     "nama = ${kucing1.nama}, berat : ${kucing1.berat}, energy = ${kucing1.umur}, jumlah kaki : ${kucing1.jumlahKaki}");
 
   // var ular1 = Hewan("reptil", 12, 100, "ular");
   // print(ular1.nama);

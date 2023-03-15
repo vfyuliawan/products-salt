@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 
-import 'package:untitled/domain/model/article/article_source_data.dart';
-import 'package:untitled/domain/model/article_list/article_list_pagination_data.dart';
+import 'package:untitled/domain/model/data/article/article_source_data.dart';
+import 'package:untitled/domain/model/data/article_list/article_list_pagination_data.dart';
 
 part 'article_list_pagination_response.g.dart';
 

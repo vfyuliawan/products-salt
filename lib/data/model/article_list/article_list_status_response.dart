@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
-import 'package:untitled/domain/model/article_list/article_list_status.dart';
+import 'package:untitled/domain/model/data/article_list/article_list_status.dart';
 
 part 'article_list_status_response.g.dart';
 

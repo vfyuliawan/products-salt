@@ -41,10 +41,12 @@ class _LoginPageState extends State<LoginPage> {
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, loginState) {
           if (loginState is LoginIsFailed) {
-            Commons().showSnackbarError(context, loginState.message!);
+            // Commons().showSnackbarError(context, loginState.message!);
+
           } else if (loginState is LoginIsSuccess) {
             print("oke");
             context.goNamed(Routes.articlePage);
+            Commons().showSnackbarInfo(context, "Register Berhasil");
           }
         },
         child: Container(
@@ -256,7 +258,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.goNamed(Routes.registerPage);
+                        },
                         child: const Text(
                           'Register',
                           style: TextStyle(

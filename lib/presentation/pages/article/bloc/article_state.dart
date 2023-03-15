@@ -1,6 +1,5 @@
-
 import 'package:equatable/equatable.dart';
-import 'package:untitled/domain/model/article/article_data.dart';
+import 'package:untitled/domain/model/data/article/article_data.dart';
 
 abstract class ArticleState extends Equatable {
   @override

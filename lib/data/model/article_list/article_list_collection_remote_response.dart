@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:untitled/data/model/article_list/article_list_collection_response.dart';
 import 'package:untitled/data/model/article_list/article_list_pagination_response.dart';
 import 'package:untitled/data/model/article_list/article_list_status_response.dart';
-import 'package:untitled/domain/model/article_list/article_list_data.dart';
+import 'package:untitled/domain/model/data/article_list/article_list_data.dart';
 
 part 'article_list_collection_remote_response.g.dart';
 
