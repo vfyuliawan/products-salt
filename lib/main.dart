@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled/data/repository/article_repository_impl.dart';
+import 'package:untitled/data/repository/home_bs/home_bs_repository_impl.dart';
+import 'package:untitled/data/repository/login_cc/login_repository_impl.dart';
 import 'package:untitled/data/repository/login_repository_impl.dart';
 import 'package:untitled/data/repository/product/product_repository_impl.dart';
 import 'package:untitled/data/repository/register_repository_impl.dart';
 import 'package:untitled/presentation/navigation/Routes.dart';
 import 'package:untitled/presentation/navigation/SARoute.dart';
+import 'package:untitled/presentation/pages/checkout/questioner_model_bloc/questioner_model_bloc.dart';
+import 'package:untitled/presentation/pages/home_bs/home_bs/home_bs_cubit.dart';
 import 'package:untitled/presentation/pages/login/login_bloc/login_bloc.dart';
+import 'package:untitled/presentation/pages/login_cc/login_cc/login_cc_cubit.dart';
 import 'package:untitled/presentation/pages/product/product_bloc/product_bloc.dart';
 import 'package:untitled/presentation/pages/product_detail/cubit/product_detail_cubit.dart';
 import 'package:untitled/presentation/pages/products/products_bloc/products_bloc.dart';
@@ -39,6 +44,15 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ProductDetailCubit(ProductRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => QuestionerModelBloc(),
+        ),
+        BlocProvider(
+          create: (context) => LoginCcCubit(LoginRepositoryImplCC()),
+        ),
+        BlocProvider(
+          create: (context) => HomeBsCubit(HomeBSRepositoryImpl()),
         ),
       ],
       child: MaterialApp.router(

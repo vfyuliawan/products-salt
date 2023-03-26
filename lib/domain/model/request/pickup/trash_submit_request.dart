@@ -31,7 +31,12 @@ class TrashSubmitRequest {
   bool isPickup;
 
   TrashSubmitRequest(
-      this.plastic, this.glass, this.steel, this.pepper, this.isPickup);
+    this.plastic,
+    this.glass,
+    this.steel,
+    this.pepper,
+    this.isPickup,
+  );
 
   factory TrashSubmitRequest.fromJson(Map<String, dynamic> json) =>
       _$TrashSubmitRequestFromJson(json);

@@ -8,6 +8,7 @@ import 'package:untitled/domain/repository/login/login_repository.dart';
 
 class LoginRepositoryImpl implements LoginRepository {
   final loginRemoteService = LoginRemoteService();
+
   @override
   Future<ResultEntity<UserLoginData>> userLogin(
       String userName, String pass) async {

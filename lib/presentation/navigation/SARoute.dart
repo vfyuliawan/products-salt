@@ -4,7 +4,12 @@ import 'package:untitled/data/utilities/commons.dart';
 import 'package:untitled/presentation/navigation/Routes.dart';
 import 'package:untitled/presentation/pages/article/article_screen.dart';
 import 'package:untitled/presentation/pages/backend.dart';
+import 'package:untitled/presentation/pages/checkout/checkout.dart';
+import 'package:untitled/presentation/pages/checkout/questioner_model_bloc/questioner_model_bloc.dart';
+import 'package:untitled/presentation/pages/home_bs/home_bs/home_bs_cubit.dart';
+import 'package:untitled/presentation/pages/home_bs/home_screen_bs.dart';
 import 'package:untitled/presentation/pages/login/login_screen.dart';
+import 'package:untitled/presentation/pages/login_cc/login_screen_cc.dart';
 import 'package:untitled/presentation/pages/product/product_bloc/product_bloc.dart';
 import 'package:untitled/presentation/pages/product/product_screen.dart';
 import 'package:untitled/presentation/pages/product_detail/cubit/product_detail_cubit.dart';
@@ -14,11 +19,19 @@ import 'package:untitled/presentation/pages/products/products_bloc/products_bloc
 import 'package:untitled/presentation/pages/register/register_page.dart';
 
 final GoRouter saRouter =
-    GoRouter(initialLocation: "/products-screen", routes: [
+    GoRouter(initialLocation: "/login-screen-cc", routes: [
   GoRoute(
       path: "/backend",
       name: Routes.backendPage,
       builder: (context, state) => const BackendTest()),
+  GoRoute(
+    path: "/home-screen-bs",
+    name: Routes.homeScreenBS,
+    builder: (context, state) {
+      BlocProvider.of<HomeBsCubit>(context).fetcHome();
+      return const HomeScreenBS();
+    },
+  ),
   GoRoute(
       path: "/product-page",
       name: Routes.productPage,
@@ -35,9 +48,20 @@ final GoRouter saRouter =
       name: Routes.loginPage,
       builder: (context, state) => const LoginPage()),
   GoRoute(
+      path: "/login-screen-cc",
+      name: Routes.loginScreenCC,
+      builder: (context, state) => const LoginScreenCC()),
+  GoRoute(
       path: "/register",
       name: Routes.registerPage,
       builder: (context, state) => const RegisterPage()),
+  GoRoute(
+      path: "/checkout-screen",
+      name: Routes.checkoutScreen,
+      builder: (context, state) {
+        BlocProvider.of<QuestionerModelBloc>(context).add(FetchQuestionModel());
+        return const CheckoutPage();
+      }),
   GoRoute(
     path: '/products-screen',
     name: Routes.productScreen,

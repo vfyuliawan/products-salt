@@ -1,6 +1,6 @@
 class UserLoginData {
   String? token;
-  UserLoginData({
+  UserLoginData(
     this.token,
-  });
+  );
 }

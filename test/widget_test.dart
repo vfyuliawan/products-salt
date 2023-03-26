@@ -11,11 +11,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:untitled/base/result_entity.dart';
 import 'package:untitled/data/repository/article_repository_impl.dart';
+import 'package:untitled/data/repository/home_bs/home_bs_repository_impl.dart';
 import 'package:untitled/data/repository/login_repository_impl.dart';
 import 'package:untitled/data/repository/product/product_repository_impl.dart';
 import 'package:untitled/data/repository/register_repository_impl.dart';
+import 'package:untitled/data/service/remote/home_BS/home_remote_service_BS.dart';
+import 'package:untitled/data/service/remote/login_cc/login_remote_service_cc.dart';
 import 'package:untitled/domain/base/authentication_header_request.dart.dart';
 import 'package:untitled/domain/model/data/article/article_data.dart';
+import 'package:untitled/domain/repository/home_bs/home_bs_repository.dart';
 import 'package:untitled/domain/repository/login/login_repository.dart';
 
 import 'package:untitled/main.dart';
@@ -102,8 +106,13 @@ Future getData() async {
   }
 }
 
-void main() async {
-  await getData();
+void main() {
+  // LoginRemoteServiceCC().submitLogin();
+  HomeRemoteServiceBS().fetchHome(AuthenticationHeaderRequest("accesToken"));
+  // HomeBSRepositoryImpl().fetchHome(AuthenticationHeaderRequest("accesToken"));
+  // HomeBSRepository().fetchHome(AuthenticationHeaderRequest("fdasdfad"));
+
+  // await getData();
   // ProductRepositoryImpl()
   //     .fetchDetailProduct(AuthenticationHeaderRequest("fasdfadf"), 1);
   // BlocProvider.of<LoginBloc>(context)

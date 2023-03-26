@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   String _userName = '';
   final _passController = TextEditingController();
   String _pass = '';
+  bool _stillWork = true;
 
   late LoginBloc _loginBloc;
 
@@ -190,6 +191,53 @@ class _LoginPageState extends State<LoginPage> {
                                 ))),
                       filled: true,
                       fillColor: Color.fromARGB(255, 252, 233, 251),
+                    ),
+                  ),
+
+                  //_stillwork
+                  Visibility(
+                    visible: (_stillWork ? true : false),
+                    child: TextField(
+                      controller: _passController,
+                      obscureText: isPassword,
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                            color: Color(0xffFCE9EA),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 217, 30, 167),
+                          ),
+                        ),
+                        hintText: 'Masukan Kata Sandi',
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              if (isPassword) {
+                                setState(() {
+                                  _stillWork = false;
+                                });
+                              } else {
+                                setState(() {
+                                  _stillWork = true;
+                                });
+                              }
+                            },
+                            icon: (isPassword == true
+                                ? Icon(
+                                    Icons.remove_red_eye,
+                                    color: Color.fromARGB(255, 217, 30, 167),
+                                  )
+                                : Icon(
+                                    Icons.visibility_off,
+                                    color: Color.fromARGB(255, 217, 30, 167),
+                                  ))),
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 252, 233, 251),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 12),

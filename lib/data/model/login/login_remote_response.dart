@@ -19,7 +19,7 @@ class LoginRemoteResponse implements LoginRemoteResponseMapper {
   @override
   UserLoginData toUserLoginData() {
     return UserLoginData(
-      token: token ?? "",
+      token ?? "",
     );
   }
 }

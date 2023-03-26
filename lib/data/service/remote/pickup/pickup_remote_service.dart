@@ -8,10 +8,6 @@ class PickupRemoteService {
   Future<Response> submitTrash(
       AuthenticationHeaderRequest header, TrashSubmitRequest request) async {
     final url = Uri.https(BaseConfig.BASE_DOMAIN, BaseConfig.SUBMIT_TRASH);
-    return client.post(
-      url,
-      headers: header.toHeader(),
-      body: request.toJson(),
-    );
+    return client.post(url, headers: header.toHeader(), body: request.toJson());
   }
 }
