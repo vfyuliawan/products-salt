@@ -19,7 +19,8 @@ import 'package:untitled/presentation/pages/products/product_screen.dart';
 import 'package:untitled/presentation/pages/products/products_bloc/products_bloc.dart';
 import 'package:untitled/presentation/pages/register/register_page.dart';
 
-final GoRouter saRouter = GoRouter(initialLocation: "/forgot-pass-dd", routes: [
+final GoRouter saRouter =
+    GoRouter(initialLocation: "/login-screen-cc", routes: [
   GoRoute(
       path: "/backend",
       name: Routes.backendPage,
