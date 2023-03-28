@@ -24,9 +24,6 @@ class LoginCcCubit extends Cubit<LoginCcState> {
       emit(LoginCcIsSuccess(
         data: (response as ResultSuccess).data,
       ));
-      final token = (response as ResultSuccess).data;
-      print(token);
-      // Commons().setUid(token);
     } else {
       emit(LoginCcIsError(message: (response as ResultError).message));
     }

@@ -14,7 +14,7 @@ class LoginRepositoryImplCC implements LoginRepositoryCC {
   @override
   Future<ResultEntity<UserLoginData>> submitLogin(LoginRequest request) async {
     try {
-      final response = await remoteService.submitLogin(request);
+      final response = await remoteService.submitLogin(request: request);
       if (response.statusCode == 200 || response.statusCode == 201) {
         BaseRemoteResponseCC<LoginRemoteResponse> baseResponseeObject =
             BaseRemoteResponseCC<LoginRemoteResponse>.fromJson(
@@ -32,10 +32,10 @@ class LoginRepositoryImplCC implements LoginRepositoryCC {
           return ResultSuccess(baseResponseeObject.data!.toUserLoginData());
         }
       } else {
-        return ResultError(message: response.body);
+        return ResultError(message: "");
       }
     } catch (error) {
-      return ResultError(message: error.toString());
+      return ResultError(message: "");
     }
   }
 }

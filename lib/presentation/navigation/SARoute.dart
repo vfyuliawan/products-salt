@@ -6,6 +6,7 @@ import 'package:untitled/presentation/pages/article/article_screen.dart';
 import 'package:untitled/presentation/pages/backend.dart';
 import 'package:untitled/presentation/pages/checkout/checkout.dart';
 import 'package:untitled/presentation/pages/checkout/questioner_model_bloc/questioner_model_bloc.dart';
+import 'package:untitled/presentation/pages/forgot_pass_dd/forgot_pass_screen.dart';
 import 'package:untitled/presentation/pages/home_bs/home_bs/home_bs_cubit.dart';
 import 'package:untitled/presentation/pages/home_bs/home_screen_bs.dart';
 import 'package:untitled/presentation/pages/login/login_screen.dart';
@@ -18,8 +19,7 @@ import 'package:untitled/presentation/pages/products/product_screen.dart';
 import 'package:untitled/presentation/pages/products/products_bloc/products_bloc.dart';
 import 'package:untitled/presentation/pages/register/register_page.dart';
 
-final GoRouter saRouter =
-    GoRouter(initialLocation: "/login-screen-cc", routes: [
+final GoRouter saRouter = GoRouter(initialLocation: "/forgot-pass-dd", routes: [
   GoRoute(
       path: "/backend",
       name: Routes.backendPage,
@@ -30,6 +30,13 @@ final GoRouter saRouter =
     builder: (context, state) {
       BlocProvider.of<HomeBsCubit>(context).fetcHome();
       return const HomeScreenBS();
+    },
+  ),
+  GoRoute(
+    path: "/forgot-pass-dd",
+    name: Routes.forgotpass,
+    builder: (context, state) {
+      return const ForgotpassScreenDD();
     },
   ),
   GoRoute(

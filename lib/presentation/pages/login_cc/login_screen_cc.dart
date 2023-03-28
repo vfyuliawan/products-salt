@@ -20,22 +20,21 @@ class LoginScreenCC extends StatefulWidget {
 class _LoginScreenCCState extends State<LoginScreenCC> {
   final _userNameController = TextEditingController();
   bool isPassword = true;
-  String _userName = '';
   final _passController = TextEditingController();
-  String _pass = '';
+
   bool _stillWork = true;
 
-  late LoginCcCubit _loginBloc;
+  late LoginCcCubit _loginCubit;
 
   @override
   void initState() {
     super.initState();
-    _loginBloc = LoginCcCubit(LoginRepositoryImplCC());
+    _loginCubit = LoginCcCubit(LoginRepositoryImplCC());
   }
 
   @override
   void dispose() {
-    _loginBloc.close();
+    _loginCubit.close();
     super.dispose();
   }
 
@@ -45,11 +44,26 @@ class _LoginScreenCCState extends State<LoginScreenCC> {
       resizeToAvoidBottomInset: false,
       body: BlocListener<LoginCcCubit, LoginCcState>(
         listener: (context, loginState) {
+          var angka = 2;
+
+          if (angka % 2 == 0) {
+            print("genap");
+          } else {
+            print("ganjil");
+          }
+          // ? = nilai true
+          // : = nilai false
+          ((angka % 2 == 0 ? print("genap") : print("ganjil")));
+
           if (loginState is LoginCcIsError) {
-            Commons().showSnackbarError(context, loginState.message!);
+            // Commons().showSnackbarError(context, loginState.message!);
+            ((loginState.message == ""
+                ? Commons()
+                    .showSnackbarError(context, "Username dan Password Salah")
+                : Commons().showSnackbarError(context, loginState.message!)));
           } else if (loginState is LoginCcIsSuccess) {
+            Commons().setUid("${loginState.data!.token}");
             print("token: ${loginState.data!.token}");
-            // context.goNamed(Routes.articlePage);
             Commons().showSnackbarInfo(context, "Login Berhasil");
           }
         },

@@ -17,6 +17,7 @@ abstract class BaseConfig {
   static const String BASE_DOMAIN_DD = "6418428b29e7e36438e38649.mockapi.io";
   static const String BASE_PATH_DD = "/api/v1";
   static const String BASE_QUESTIONER_DD = "/questionnaire";
+  static const String BASE_FOR_PASS_DD = "/forgot-password";
 
   //CARRER CENTER
   static const String BASE_DOMAIN_CC = "6418428b29e7e36438e38649.mockapi.io";

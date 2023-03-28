@@ -9,4 +9,5 @@ abstract class Routes {
   static const String productDetailScreen = 'product-detail-screen';
   static const String checkoutScreen = 'checkout-screen';
   static const String homeScreenBS = 'home-screen-bs';
+  static const String forgotpass = 'forgot-pass-dd';
 }

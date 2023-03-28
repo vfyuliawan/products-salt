@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled/data/repository/article_repository_impl.dart';
+import 'package:untitled/data/repository/forgot_password_dd/forgot_password_impl_dd.dart';
 import 'package:untitled/data/repository/home_bs/home_bs_repository_impl.dart';
 import 'package:untitled/data/repository/login_cc/login_repository_impl.dart';
 import 'package:untitled/data/repository/login_repository_impl.dart';
@@ -10,6 +11,7 @@ import 'package:untitled/data/repository/register_repository_impl.dart';
 import 'package:untitled/presentation/navigation/Routes.dart';
 import 'package:untitled/presentation/navigation/SARoute.dart';
 import 'package:untitled/presentation/pages/checkout/questioner_model_bloc/questioner_model_bloc.dart';
+import 'package:untitled/presentation/pages/forgot_pass_dd/forgot_pass_cubit/forgot_pass_dd_cubit.dart';
 import 'package:untitled/presentation/pages/home_bs/home_bs/home_bs_cubit.dart';
 import 'package:untitled/presentation/pages/login/login_bloc/login_bloc.dart';
 import 'package:untitled/presentation/pages/login_cc/login_cc/login_cc_cubit.dart';
@@ -53,6 +55,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HomeBsCubit(HomeBSRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => ForgotPassDdCubit(ForgotPasswordImplDD()),
         ),
       ],
       child: MaterialApp.router(
