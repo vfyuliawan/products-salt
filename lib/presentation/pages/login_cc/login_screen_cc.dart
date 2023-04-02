@@ -23,7 +23,7 @@ class _LoginScreenCCState extends State<LoginScreenCC> {
   bool isPassword = true;
   final _passController = TextEditingController();
 
-  bool _stillWork = true;
+  bool _stillWork = false;
 
   late LoginCcCubit _loginCubit;
 
@@ -189,6 +189,18 @@ class _LoginScreenCCState extends State<LoginScreenCC> {
                         hintText: 'Masukan Kata Sandi',
                         suffixIcon: IconButton(
                             onPressed: () {
+                              //visible handle
+                              if (_stillWork) {
+                                setState(() {
+                                  _stillWork = false;
+                                });
+                              } else {
+                                setState(() {
+                                  _stillWork = true;
+                                });
+                              }
+                              //visible handle
+
                               if (isPassword) {
                                 setState(() {
                                   isPassword = false;

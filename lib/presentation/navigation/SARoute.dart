@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled/data/utilities/commons.dart';
 import 'package:untitled/presentation/navigation/Routes.dart';
+import 'package:untitled/presentation/pages/RiwayatBS/riwayat_bs_cubit/riwayat_bs_cubit.dart';
+import 'package:untitled/presentation/pages/RiwayatBS/riwayat_screen.dart';
 import 'package:untitled/presentation/pages/article/article_screen.dart';
 import 'package:untitled/presentation/pages/backend.dart';
 import 'package:untitled/presentation/pages/checkout/checkout.dart';
@@ -20,7 +22,7 @@ import 'package:untitled/presentation/pages/products/products_bloc/products_bloc
 import 'package:untitled/presentation/pages/register/register_page.dart';
 
 final GoRouter saRouter =
-    GoRouter(initialLocation: "/login-screen-cc", routes: [
+    GoRouter(initialLocation: "/riwayat-screen-bs", routes: [
   GoRoute(
       path: "/backend",
       name: Routes.backendPage,
@@ -31,6 +33,14 @@ final GoRouter saRouter =
     builder: (context, state) {
       BlocProvider.of<HomeBsCubit>(context).fetcHome();
       return const HomeScreenBS();
+    },
+  ),
+  GoRoute(
+    path: "/riwayat-screen-bs",
+    name: Routes.homeRiwayatBS,
+    builder: (context, state) {
+      BlocProvider.of<RiwayatBsCubit>(context).fetchRiwayat("fasdfads");
+      return const RiwayatScreen();
     },
   ),
   GoRoute(

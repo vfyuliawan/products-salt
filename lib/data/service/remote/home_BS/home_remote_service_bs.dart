@@ -13,4 +13,13 @@ class HomeRemoteServiceBS {
       url,
     );
   }
+
+  Future<Response> fetchHistory(AuthenticationHeaderRequest header) async {
+    final url = Uri.https(BaseConfig.BASE_DOMAIN_BS,
+        BaseConfig.BASE_PATH_BS + BaseConfig.BASE_HISTORY);
+    print(url);
+    return client.get(
+      url,
+    );
+  }
 }

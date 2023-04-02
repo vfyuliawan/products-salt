@@ -23,7 +23,12 @@ class RiwayatResponseBS implements RiwayatResponseBSMapper {
 
   @override
   RiwayatDataBS toRiwayatDataBS() {
-    return RiwayatDataBS(date ?? "", price ?? 0, weight ?? 0, point ?? 0);
+    return RiwayatDataBS(
+      date ?? "",
+      price ?? 0,
+      weight ?? 0,
+      point ?? 0,
+    );
   }
 }
 

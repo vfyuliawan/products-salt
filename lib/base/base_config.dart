@@ -12,6 +12,7 @@ abstract class BaseConfig {
   static const String BASE_DOMAIN_BS = "6418428229e7e36438e38559.mockapi.io";
   static const String BASE_PATH_BS = "/api/v1";
   static const String BASE_HOME = "/home";
+  static const String BASE_HISTORY = "/history";
 
   //DONOR DARAH
   static const String BASE_DOMAIN_DD = "6418428b29e7e36438e38649.mockapi.io";

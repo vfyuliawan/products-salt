@@ -19,6 +19,7 @@ class LoginCcCubit extends Cubit<LoginCcState> {
   Future<void> onSubmitLogin(String? email, String? pass) async {
     emit(LoginCcIsLoading());
     final request = LoginRequest(email!, pass!);
+    print(request.toJson());
     final response = await repository.submitLogin(request);
     if (response is ResultSuccess) {
       emit(LoginCcIsSuccess(

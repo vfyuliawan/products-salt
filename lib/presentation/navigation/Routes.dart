@@ -1,5 +1,6 @@
 abstract class Routes {
   static const String backendPage = "backend-page";
+  static const String homeRiwayatBS = "riwayat-screen-bs";
   static const String articlePage = "article-page";
   static const String loginPage = "login-page";
   static const String loginScreenCC = "login-screen-cc";
