@@ -11,4 +11,7 @@ abstract class Routes {
   static const String checkoutScreen = 'checkout-screen';
   static const String homeScreenBS = 'home-screen-bs';
   static const String forgotpass = 'forgot-pass-dd';
+  static const String registerPageDD1 = 'register-page-dd-1';
+  static const String registerPageDD2 = 'register-page-dd-2';
+  static const String registerPageDD3 = 'register-page-dd-3';
 }

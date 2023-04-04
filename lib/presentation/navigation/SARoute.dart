@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:untitled/data/utilities/commons.dart';
+import 'package:untitled/domain/model/request/register_dd/register_request_dd.dart';
 import 'package:untitled/presentation/navigation/Routes.dart';
 import 'package:untitled/presentation/pages/RiwayatBS/riwayat_bs_cubit/riwayat_bs_cubit.dart';
 import 'package:untitled/presentation/pages/RiwayatBS/riwayat_screen.dart';
@@ -20,9 +21,12 @@ import 'package:untitled/presentation/pages/product_detail/product_detail_screen
 import 'package:untitled/presentation/pages/products/product_screen.dart';
 import 'package:untitled/presentation/pages/products/products_bloc/products_bloc.dart';
 import 'package:untitled/presentation/pages/register/register_page.dart';
+import 'package:untitled/presentation/pages/register_dd/register_dd_page_1.dart';
+import 'package:untitled/presentation/pages/register_dd/register_dd_page_2.dart';
+import 'package:untitled/presentation/pages/register_dd/register_dd_page_3.dart';
 
 final GoRouter saRouter =
-    GoRouter(initialLocation: "/riwayat-screen-bs", routes: [
+    GoRouter(initialLocation: "/register-page-dd-1", routes: [
   GoRoute(
       path: "/backend",
       name: Routes.backendPage,
@@ -57,6 +61,33 @@ final GoRouter saRouter =
         BlocProvider.of<ProductBloc>(context).add(FetchAllProduct());
         return const ProductPage();
       }),
+  GoRoute(
+      path: "/register-page-dd-1",
+      name: Routes.registerPageDD1,
+      builder: (context, state) => RegisterPage1(),
+      routes: [
+        GoRoute(
+            path: "register-page-dd-2",
+            name: Routes.registerPageDD2,
+            routes: [
+              GoRoute(
+                path: "register-page-dd-3",
+                name: Routes.registerPageDD3,
+                builder: (context, state) {
+                  RegisterRequestDD page2 = state.extra as RegisterRequestDD;
+                  return RegisterPage3(
+                    page2: page2,
+                  );
+                },
+              )
+            ],
+            builder: (context, state) {
+              RegisterRequestDD page1 = state.extra as RegisterRequestDD;
+              return RegisterPage2(
+                page1: page1,
+              );
+            })
+      ]),
   GoRoute(
       path: "/article",
       name: Routes.articlePage,
