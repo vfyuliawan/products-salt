@@ -14,4 +14,6 @@ abstract class Routes {
   static const String registerPageDD1 = 'register-page-dd-1';
   static const String registerPageDD2 = 'register-page-dd-2';
   static const String registerPageDD3 = 'register-page-dd-3';
+  static const String pdfTest = 'pdf-test';
+  static const String pdfTemp = 'pdf-temp';
 }

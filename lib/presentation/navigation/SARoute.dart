@@ -14,6 +14,7 @@ import 'package:untitled/presentation/pages/home_bs/home_bs/home_bs_cubit.dart';
 import 'package:untitled/presentation/pages/home_bs/home_screen_bs.dart';
 import 'package:untitled/presentation/pages/login/login_screen.dart';
 import 'package:untitled/presentation/pages/login_cc/login_screen_cc.dart';
+import 'package:untitled/presentation/pages/pdf_test/pdf_test.dart';
 import 'package:untitled/presentation/pages/product/product_bloc/product_bloc.dart';
 import 'package:untitled/presentation/pages/product/product_screen.dart';
 import 'package:untitled/presentation/pages/product_detail/cubit/product_detail_cubit.dart';
@@ -25,8 +26,7 @@ import 'package:untitled/presentation/pages/register_dd/register_dd_page_1.dart'
 import 'package:untitled/presentation/pages/register_dd/register_dd_page_2.dart';
 import 'package:untitled/presentation/pages/register_dd/register_dd_page_3.dart';
 
-final GoRouter saRouter =
-    GoRouter(initialLocation: "/register-page-dd-1", routes: [
+final GoRouter saRouter = GoRouter(initialLocation: "/pdf-test", routes: [
   GoRoute(
       path: "/backend",
       name: Routes.backendPage,
@@ -110,6 +110,18 @@ final GoRouter saRouter =
       builder: (context, state) {
         BlocProvider.of<QuestionerModelBloc>(context).add(FetchQuestionModel());
         return const CheckoutPage();
+      }),
+  GoRoute(
+      path: "/pdf-test",
+      name: Routes.pdfTest,
+      routes: [
+        GoRoute(
+            path: "pdf-temp",
+            name: Routes.pdfTemp,
+            builder: (context, state) => PDFScreen()),
+      ],
+      builder: (context, state) {
+        return PdfTest();
       }),
   GoRoute(
     path: '/products-screen',
