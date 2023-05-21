@@ -15,7 +15,7 @@ class ProductRateResponse implements ProductRateResponseMapper {
   factory ProductRateResponse.fromJson(Map<String, dynamic> json) =>
       _$ProductRateResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => ProductRateResponseToJson(this);
+  Map<String, dynamic> toJson() => _$ProductRateResponseToJson(this);
 
   @override
   ProductRatingData toRatingData() => ProductRatingData(rate ?? 0, count ?? 0);

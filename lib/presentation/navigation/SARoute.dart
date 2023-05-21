@@ -7,11 +7,14 @@ import 'package:untitled/presentation/pages/RiwayatBS/riwayat_bs_cubit/riwayat_b
 import 'package:untitled/presentation/pages/RiwayatBS/riwayat_screen.dart';
 import 'package:untitled/presentation/pages/article/article_screen.dart';
 import 'package:untitled/presentation/pages/backend.dart';
+import 'package:untitled/presentation/pages/cart_count/cart_count.dart';
 import 'package:untitled/presentation/pages/checkout/checkout.dart';
 import 'package:untitled/presentation/pages/checkout/questioner_model_bloc/questioner_model_bloc.dart';
 import 'package:untitled/presentation/pages/forgot_pass_dd/forgot_pass_screen.dart';
 import 'package:untitled/presentation/pages/home_bs/home_bs/home_bs_cubit.dart';
 import 'package:untitled/presentation/pages/home_bs/home_screen_bs.dart';
+import 'package:untitled/presentation/pages/laundry/laundry_screen.dart';
+import 'package:untitled/presentation/pages/laundry/laundry_test/laundry_test_cubit.dart';
 import 'package:untitled/presentation/pages/login/login_screen.dart';
 import 'package:untitled/presentation/pages/login_cc/login_screen_cc.dart';
 import 'package:untitled/presentation/pages/pdf_test/pdf_test.dart';
@@ -26,11 +29,18 @@ import 'package:untitled/presentation/pages/register_dd/register_dd_page_1.dart'
 import 'package:untitled/presentation/pages/register_dd/register_dd_page_2.dart';
 import 'package:untitled/presentation/pages/register_dd/register_dd_page_3.dart';
 
-final GoRouter saRouter = GoRouter(initialLocation: "/pdf-test", routes: [
+final GoRouter saRouter = GoRouter(initialLocation: "/laundry-screen", routes: [
   GoRoute(
       path: "/backend",
       name: Routes.backendPage,
       builder: (context, state) => const BackendTest()),
+  GoRoute(
+      path: "/laundry-screen",
+      name: Routes.laundry,
+      builder: (context, state) {
+        BlocProvider.of<LaundryTestCubit>(context).fetchData();
+        return const LaundryScreen();
+      }),
   GoRoute(
     path: "/home-screen-bs",
     name: Routes.homeScreenBS,
@@ -93,6 +103,11 @@ final GoRouter saRouter = GoRouter(initialLocation: "/pdf-test", routes: [
       name: Routes.articlePage,
       builder: (context, state) => const ArticleScreen()),
   GoRoute(
+    path: "/cart",
+    name: Routes.cartScreen,
+    builder: (context, state) => CartCount(),
+  ),
+  GoRoute(
       path: "/login",
       name: Routes.loginPage,
       builder: (context, state) => const LoginPage()),
@@ -111,18 +126,18 @@ final GoRouter saRouter = GoRouter(initialLocation: "/pdf-test", routes: [
         BlocProvider.of<QuestionerModelBloc>(context).add(FetchQuestionModel());
         return const CheckoutPage();
       }),
-  GoRoute(
-      path: "/pdf-test",
-      name: Routes.pdfTest,
-      routes: [
-        GoRoute(
-            path: "pdf-temp",
-            name: Routes.pdfTemp,
-            builder: (context, state) => PDFScreen()),
-      ],
-      builder: (context, state) {
-        return PdfTest();
-      }),
+  // GoRoute(
+  //     path: "/pdf-test",
+  //     name: Routes.pdfTest,
+  //     routes: [
+  //       GoRoute(
+  //           path: "pdf-temp",
+  //           name: Routes.pdfTemp,
+  //           builder: (context, state) => PDFScreen()),
+  //     ],
+  //     builder: (context, state) {
+  //       return PdfTest();
+  //     }),
   GoRoute(
     path: '/products-screen',
     name: Routes.productScreen,

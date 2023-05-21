@@ -25,4 +25,9 @@ abstract class BaseConfig {
   static const String BASE_DOMAIN_CC = "6418428b29e7e36438e38649.mockapi.io";
   static const String BASE_PATH_CC = "/api/v1";
   static const String LOGIN_CC = "/login";
+
+  //laundryAPI
+  static const String Base_API = "api.postman.com";
+  static const String Base_Path_Laundry =
+      "/collections/25382274-d8741dd6-5908-47a6-945d-d433d615febf?access_key=PMAT-01GWEEZANFNXZJZE41CRAKE8HF";
 }

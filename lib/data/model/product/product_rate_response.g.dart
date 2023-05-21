@@ -12,7 +12,8 @@ ProductRateResponse _$ProductRateResponseFromJson(Map<String, dynamic> json) =>
       count: json['count'] as int?,
     );
 
-Map<String, dynamic> ProductRateResponseToJson(ProductRateResponse instance) =>
+Map<String, dynamic> _$ProductRateResponseToJson(
+        ProductRateResponse instance) =>
     <String, dynamic>{
       'rate': instance.rate,
       'count': instance.count,
